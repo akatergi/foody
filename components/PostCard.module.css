@@ -1,0 +1,29 @@
+.post{
+    border: 2px solid lightblue;
+    background-color: rgb(228, 250, 255);
+    border-radius: 4px;
+    padding: 0 1em;
+    margin:1em;
+    /* width: fit-content; */
+    transition: all 0.125s ease-in;
+}
+
+.post:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+}
+
+.content{
+    display:grid;
+    grid-template-columns: 1.1fr 9fr;
+}
+
+.score{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.author{
+    margin-top:0px;
+}

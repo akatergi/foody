@@ -1,0 +1,10 @@
+.flair{
+    border-width: 1px;
+    border-style: solid;
+    width: fit-content;
+    padding:0.7em;
+    margin-bottom: 1em;
+    border-radius: 10%;
+    display: inline;
+    margin-right:1em;
+}
