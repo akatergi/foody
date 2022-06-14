@@ -29,8 +29,13 @@ export default function index({ id }) {
                 var post = doc.data()
                 getFlairs(post.flairs).then(f => {
                     post.flairs = f;
-                    setPost(post)
-                    setLoading(false)
+                    getDoc(post.author).then(t => {
+                        const { name } = t.data()
+                        post.author = { name, id: t.id }
+                        setPost(post)
+                        setLoading(false)
+                    }
+                    )
                 })
             } else {
                 setError("Could not find that post!")

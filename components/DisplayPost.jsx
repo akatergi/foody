@@ -9,7 +9,7 @@ export default function DisplayPost({ post, handleClick }) {
     return (
         <>
             <h1>{post.food}</h1>
-            <p> - {post.author}</p>
+            <p> - {post.author.name}</p>
             <h4>Flairs:</h4>
 
             {post.flairs.map(f => <div className={styles.flair}
