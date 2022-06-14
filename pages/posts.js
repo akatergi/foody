@@ -1,6 +1,6 @@
 import { db, postsRef } from "../firebase/config"
 import { useEffect, useState } from "react"
-import { getDocs, onSnapshot } from "firebase/firestore";
+import { updateDoc, onSnapshot, doc } from "firebase/firestore";
 
 import PostCard from "../components/PostCard";
 import styles from '../components/allPosts.module.css'
@@ -27,7 +27,13 @@ export default function Home() {
 
   return (
     <div className={styles.allPosts}>
-      {loading ? <h1>Loading... </h1> : posts.map(p => <PostCard key={p.id} post={p} />)}
+      {loading ? <h1>Loading... </h1> : posts.map(p => <PostCard key={p.id} post={p} upvoteFct={() => {
+        const docRef = doc(db, 'posts', p.id)
+        updateDoc(docRef, { score: p.score + 1 })
+      }} downvoteFct={() => {
+        const docRef = doc(db, 'posts', p.id)
+        updateDoc(docRef, { score: p.score - 1 })
+      }} />)}
     </div>
   )
 }
